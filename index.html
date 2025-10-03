@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .dice-container {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .dice {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border: 2px solid #333;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #total {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dice Roller</h1>
+    <div class="dice-container">
+        <div class="dice" id="dice1">1</div>
+        <div class="dice" id="dice2">1</div>
+    </div>
+    <button onclick="rollDice()">Roll Dice</button>
+    <div id="total">Total: 2</div>
+    <script src="script.js"></script>
+</body>
+</html>
