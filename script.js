@@ -34,6 +34,7 @@ function getRandomSpins() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeDice(document.getElementById('dice1'));
     initializeDice(document.getElementById('dice2'));
+    initializeDice(document.getElementById('dice3'));
 });
 
 function initializeDice(diceElement) {
@@ -59,17 +60,20 @@ function setupDice(diceElement, value) {
 }
 
 function rollDice() {
-    // Generate random numbers for both dice
+    // Generate random numbers for all three dice
     const dice1Value = Math.floor(Math.random() * 6) + 1;
     const dice2Value = Math.floor(Math.random() * 6) + 1;
+    const dice3Value = Math.floor(Math.random() * 6) + 1;
     
     // Get random spins for animation
     const spins1 = getRandomSpins();
     const spins2 = getRandomSpins();
+    const spins3 = getRandomSpins();
     
     // Get final rotations based on dice values
     const final1 = getFinalRotation(dice1Value);
     const final2 = getFinalRotation(dice2Value);
+    const final3 = getFinalRotation(dice3Value);
     
     // Update dice 1
     const dice1 = document.getElementById('dice1');
@@ -80,10 +84,15 @@ function rollDice() {
     const dice2 = document.getElementById('dice2');
     setupDice(dice2, dice2Value);
     dice2.style.transform = `rotateX(${spins2.x + final2.x}deg) rotateY(${spins2.y + final2.y}deg) rotateZ(${spins2.z + final2.z}deg)`;
+
+    // Update dice 3
+    const dice3 = document.getElementById('dice3');
+    setupDice(dice3, dice3Value);
+    dice3.style.transform = `rotateX(${spins3.x + final3.x}deg) rotateY(${spins3.y + final3.y}deg) rotateZ(${spins3.z + final3.z}deg)`;
     
     // Calculate and update total after animation
     setTimeout(() => {
-        const total = dice1Value + dice2Value;
+        const total = dice1Value + dice2Value + dice3Value;
         document.getElementById('total').textContent = `Total: ${total}`;
     }, 1500);
 
